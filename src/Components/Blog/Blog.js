@@ -7,6 +7,6 @@ const Blog = (props) => {
             <p>This is my blog</p>
         </Paper>
     )
-}
+};
 
 export default Blog

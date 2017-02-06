@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import NavBar from './NavBar'
+import NavBar from '../NavBar/NavBar'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import ListView from './ListView'
 
 
 class App extends Component {
+    componentDidMount(){
+        injectTapEventPlugin();
+    }
   render() {
     return (
         <MuiThemeProvider>
@@ -20,8 +22,8 @@ class App extends Component {
                 </div>
         </MuiThemeProvider>
     );
-  }
-}
+  };
+};
 
 export default App;
 

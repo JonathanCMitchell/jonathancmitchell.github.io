@@ -7,14 +7,9 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import { IndexLink } from 'react-router'
 
-class NavBar extends Component {
-    constructor(props) {
-        super(props)
-    }
 
-
-    render() {
-        return (
+const NavBar = (props) => {
+     return (
             <div>
                 <Navbar className="navbar">
                     <Navbar.Header>
@@ -56,30 +51,8 @@ class NavBar extends Component {
                 </Navbar>
             </div>
         )
-    }
 }
 
 
 
-
 export default NavBar
-
-
-
-        // <div>
-        //     <Navbar className="navbar"
-        //     <Nav pullRight>
-        //         <LinkContainer to="/">
-        //             <NavItem className="col-md-4" eventKey={1}>
-        //                 <li>Home</li>
-        //             </NavItem>
-        //         </LinkContainer>
-        //
-        //         <LinkContainer to="/blog">
-        //             <NavItem eventKey={2}>
-        //                 Blog
-        //             </NavItem>
-        //         </LinkContainer>
-        //
-        //     </Nav>
-        // </div>

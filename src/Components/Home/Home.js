@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './Home.css';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
-class Home extends Component {
-  render() {
+const Home = (props) => {
     return (
       <div className="Home">
         <div className="Home-header">
@@ -18,8 +15,7 @@ class Home extends Component {
         </p>
       </div>
     );
-  }
-}
+};
 
 export default Home;
 
