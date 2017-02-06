@@ -6,7 +6,8 @@ import Paper from 'material-ui/Paper'
 import ListViewItem from './ListViewItem'
 import FlatButton from 'material-ui/FlatButton';
 import axios from 'axios'
-
+import { IndexLink } from 'react-router'
+import { Link } from 'react-router'
 
 class ListView extends Component {
     constructor(props) {
@@ -45,7 +46,23 @@ class ListView extends Component {
         return (
             <div>
                 <FlatButton backgroundColor={"red"} type="Submit" onChange={this.handleInputData()} />
+                <button>
+
+                    <IndexLink to="/ListViewItem">To List View ITem</IndexLink>
+                </button>
+
+
+                <button>
+
+                    <Link to="/ListViewItem">To Listee View ITem</Link>
+                </button>
                 <Paper><ul>{this.renderListViewItems()}</ul></Paper>
+                <Paper>
+                    <p>Blog content ish man lumina starta arsa ibut ibimson dimsun alamoni. Blog content
+                        ish man lumina starta arsa ibut ibimson dimsun alamoni. Blog content ish man lumina
+                        starta arsa ibut ibimson dimsun alamoni</p>
+
+                </Paper>
             </div>
 
 
