@@ -21,7 +21,7 @@ const NavBar = (props) => {
                     <Navbar.Collapse>
                         <Nav>
                             <LinkContainer to="/aboutme">
-                                <NavItem className="col-md-4" eventKey={1}>Aboutme</NavItem>
+                                <NavItem className="col-md-4" eventKey={1}>About</NavItem>
                             </LinkContainer>
 
                             <LinkContainer to="/resume">
