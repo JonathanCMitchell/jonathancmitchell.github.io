@@ -13,4 +13,4 @@ const essay3 =
         </Paper>
     );
 
-export default essay3
+export default essay
