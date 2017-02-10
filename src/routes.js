@@ -9,11 +9,14 @@ import App from './Components/App/App'
 import Home from './Components/Home/Home'
 import Blog from './Components/Blog/Blog'
 import Aboutme from './Components/Aboutme/Aboutme'
+import Resume from './Components/Resume/Resume'
+
 const routes = (
     <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="/blog" component={Blog} />
-        <Route path="/aboutme" component={Aboutme} />
+        <Route path="/aboutme" component = {Aboutme} />
+        <Route path="/resume" component = {Resume} />
     </Route>
 );
 
