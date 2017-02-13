@@ -10,13 +10,15 @@ import Home from './Components/Home/Home'
 import Blog from './Components/Blog/Blog'
 import Aboutme from './Components/Aboutme/Aboutme'
 import Resume from './Components/Resume/Resume'
+import Portfolio from './Components/Portfolio/Portfolio'
 
 const routes = (
     <Route path="/" component={App}>
-        <IndexRoute component={Home} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/aboutme" component = {Aboutme} />
-        <Route path="/resume" component = {Resume} />
+        <IndexRoute component={Home}/>
+        <Route path="/blog" component={Blog}/>
+        <Route path="/aboutme" component={Aboutme}/>
+        <Route path="/resume" component={Resume}/>
+        <Route path="/portfolio" component={Portfolio}/>
     </Route>
 );
 

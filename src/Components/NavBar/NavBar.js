@@ -2,13 +2,13 @@
  * Created by jj on 2/3/17.
  */
 import './NavBar.css'
-import React, { Component } from 'react';
+import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
 import { IndexLink } from 'react-router'
 
 
-const NavBar = (props) => {
+const NavBar = () => {
      return (
             <div>
                 <Navbar className="navbar">
@@ -51,7 +51,7 @@ const NavBar = (props) => {
                 </Navbar>
             </div>
         )
-}
+};
 
 
 
