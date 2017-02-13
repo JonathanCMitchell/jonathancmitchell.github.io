@@ -1,14 +1,14 @@
 /**
  * Created by jj on 2/12/17.
  * Display for GameReviewApi component
+ *
  */
 import React from 'react'
 import { Card, CardHeader, CardMedia, CardTitle, CardText, CardActions } from 'material-ui/Card'
 
 const GameReviewApi = (props) => {
     return (
-        <div>
-            <Card>
+            <Card className="col-md-6 col-xs-12 Project-Card">
                 <CardHeader
                     title="Game Review API"
                     subtitle="An API with 16000 ign game reviews"
@@ -41,8 +41,6 @@ const GameReviewApi = (props) => {
                     </a>
                     </CardActions>
             </Card>
-
-        </div>
     )
 };
 
