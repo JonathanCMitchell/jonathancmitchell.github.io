@@ -17,6 +17,9 @@ import OmakaseImage from './Projects/Omakase/tryomakase.png'
 import RadarSensor from './Projects/RadarSensor/RadarSensor'
 import RadarSensorImage from './Projects/RadarSensor/radar-sensor.png'
 
+import LaneLineDetector from './Projects/LaneLineDetector/LaneLineDetector'
+import LaneLineDetectorImage from './Projects/LaneLineDetector/lanelineimg.png'
+
 class Portfolio extends Component {
     constructor(props) {
         super(props)
@@ -40,8 +43,8 @@ class Portfolio extends Component {
                         imageurl={RadarSensorImage}
                         />
 
-                        <GameReviewApi
-                        imageurl={GameReviewApiImage}
+                        <LaneLineDetector
+                        imageurl={LaneLineDetectorImage}
                         />
                     </div>
                 </div>
