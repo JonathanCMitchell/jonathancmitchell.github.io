@@ -23,10 +23,12 @@ const GameReviewApi = (props) => {
                     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                 </CardText>
                     <CardActions>
-                    <a href="http://gamereviewdocs.herokuapp.com">
+                    <a href="http://gamereviewdocs.herokuapp.com"
+                       target ="_blank">
                         <i className="fa fa-eye fa-3x"></i>
                     </a>
-                    <a href="https://github.com/ConsoleGameApi">
+                    <a href="http://github.com/ConsoleGameApi"
+                       target ="_blank">
                         <i className="fa fa-github fa-3x"></i>
                     </a>
                     </CardActions>

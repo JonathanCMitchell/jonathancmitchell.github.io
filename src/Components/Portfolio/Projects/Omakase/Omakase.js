@@ -20,10 +20,12 @@ const Omakase = (props) => {
                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
             </CardText>
             <CardActions>
-                <a href="http://tryomakase.herokuapp.com">
+                <a href="http://tryomakase.herokuapp.com"
+                   target ="_blank">
                     <i className="fa fa-eye fa-3x"></i>
                 </a>
-                <a href="https://github.com/Omakaseinc/omakase">
+                <a href="http://github.com/Omakaseinc/omakase"
+                   target ="_blank">
                     <i className="fa fa-github fa-3x"></i>
                 </a>
             </CardActions>

@@ -22,10 +22,13 @@ const RadarSensor = (props) => {
                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
             </CardText>
             <CardActions>
-                <a href="http://tryomakase.herokuapp.com">
-                    <i className="fa fa-eye fa-3x"></i>
+                <a
+                    href="https://docs.google.com/document/d/1jGDBupBqz7a-Cig6KLieLi5r4yu8q2ELPhPQUG7XAjY/edit?usp=sharing"
+                    target ="_blank">
+                    <i className="fa fa-file-pdf-o fa-3x"></i>
                 </a>
-                <a href="https://github.com/Omakaseinc/omakase">
+                <a href="http://github.com/Omakaseinc/omakase"
+                   target ="_blank">
                     <i className="fa fa-github fa-3x"></i>
                 </a>
             </CardActions>
