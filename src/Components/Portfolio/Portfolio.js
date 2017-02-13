@@ -20,6 +20,9 @@ import RadarSensorImage from './Projects/RadarSensor/radar-sensor.png'
 import LaneLineDetector from './Projects/LaneLineDetector/LaneLineDetector'
 import LaneLineDetectorImage from './Projects/LaneLineDetector/lanelineimg.png'
 
+import RedditSearch from './Projects/RedditSearch/RedditSearch'
+import RedditSearchImage from './Projects/RedditSearch/redditsearch.png'
+
 class Portfolio extends Component {
     constructor(props) {
         super(props)
@@ -45,6 +48,10 @@ class Portfolio extends Component {
 
                         <LaneLineDetector
                         imageurl={LaneLineDetectorImage}
+                        />
+
+                        <RedditSearch
+                        imageurl={RedditSearchImage}
                         />
                     </div>
                 </div>
