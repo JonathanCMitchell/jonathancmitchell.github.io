@@ -8,6 +8,7 @@
  */
 import React, { Component } from 'react'
 import './Portfolio.css'
+import Divider from 'material-ui/Divider'
 import GameReviewApi from './Projects/GameReviewApi/GameReviewApi'
 import GameReviewApiImage from './Projects/GameReviewApi/Gamereviewdocs_web.jpg'
 
@@ -44,6 +45,7 @@ class Portfolio extends Component {
                         <LaneLineDetector
                             imageurl={LaneLineDetectorImage}
                         />
+                        <Divider/>
 
                         <GameReviewApi
                         imageurl={GameReviewApiImage}

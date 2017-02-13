@@ -35,6 +35,14 @@ const RadarSensor = (props) => {
                    target ="_blank">
                     <i className="fa fa-youtube fa-3x"></i>
                 </a>
+                <a href="http://github.com/JonathanCMitchell/RadarSensorCode/blob/master/spi_protocol.c"
+                   target ="_blank">
+                    <i className="fa fa-code fa-3x"></i>
+                </a>
+                <a href="http://medium.com/@jmitchell1991/talking-to-chips-and-minimizing-noise-8a7de1188a67#.saeypxnf6"
+                   target ="_blank">
+                    <i className="fa fa-medium fa-3x"></i>
+                </a>
             </CardActions>
         </Card>
     )

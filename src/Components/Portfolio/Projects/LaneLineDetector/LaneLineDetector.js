@@ -17,6 +17,7 @@ const LaneLineDetector = (props) => {
             />
             <CardText>
                 <li>Utilized OpenCV image analysis techniques to identify lines, including Hough Transforms and Canny Edge Detection</li>
+                <li>Implemented line interpolation protocol to draw new lines or grab lines from cache</li>
             </CardText>
             <CardActions>
                 <a href="https://youtu.be/Ha090kb7ZkI"

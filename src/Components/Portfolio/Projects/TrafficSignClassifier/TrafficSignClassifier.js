@@ -17,15 +17,15 @@ const RedditSearch = (props) => {
     return (
         <Card className="col-md-6 col-xs-12 Project-Card">
             <CardMedia>
-                <img className="Project-media-imageShrink" src={props.imageurl} />
+                <img src={props.imageurl} />
             </CardMedia>
             <CardTitle
                 title="Traffic Sign Classifier"
                 subtitle="Classify Traffic Signs from more than 40 classes in a German Traffic Sign Dataset of 50,000 32x32 images"
             />
             <CardText>
-                <li>Implemented a LeNet-like Convolutional Neural Network using Google’s TensorFlow deep learning framework</li>
-                <li>Utilized normalization, data creation, regularization methods to increase accuracy to ~ 98.4% on validation set</li>
+                <li>Implemented a LeNet-like Convolutional Neural Network using TensorFlow, Numpy, Scikit, Pandas</li>
+                <li>Utilized normalization, data creation, regularization methods to increase accuracy</li>
             </CardText>
             <CardActions>
                 <a href="http://github.com/JonathanCMitchell/TrafficSignClassification"
