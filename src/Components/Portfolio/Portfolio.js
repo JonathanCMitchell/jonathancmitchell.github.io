@@ -9,22 +9,22 @@
 import React, { Component } from 'react'
 import './Portfolio.css'
 import GameReviewApi from './Projects/GameReviewApi/GameReviewApi'
-import GameReviewApiImage from './Projects/GameReviewApi/game-review-api.png'
+import GameReviewApiImage from './Projects/GameReviewApi/Gamereviewdocs_web.jpg'
 
 import Omakase from './Projects/Omakase/Omakase'
-import OmakaseImage from './Projects/Omakase/tryomakase.png'
+import OmakaseImage from './Projects/Omakase/Omakase_web.jpg'
 
 import RadarSensor from './Projects/RadarSensor/RadarSensor'
-import RadarSensorImage from './Projects/RadarSensor/radar-sensor.png'
+import RadarSensorImage from './Projects/RadarSensor/Antenna_project_web.jpg'
 
 import LaneLineDetector from './Projects/LaneLineDetector/LaneLineDetector'
-import LaneLineDetectorImage from './Projects/LaneLineDetector/lanelineimg.png'
+import LaneLineDetectorImage from './Projects/LaneLineDetector/lane_line_web.jpg'
 
 import RedditSearch from './Projects/RedditSearch/RedditSearch'
-import RedditSearchImage from './Projects/RedditSearch/redditsearch.png'
+import RedditSearchImage from './Projects/RedditSearch/reddit_web.jpg'
 
 import TrafficSignClassifier from './Projects/TrafficSignClassifier/TrafficSignClassifier'
-import TrafficSignClassifierImage from './Projects/TrafficSignClassifier/trafficsign.jpg'
+import TrafficSignClassifierImage from './Projects/TrafficSignClassifier/convnet_architecture_traffic_signs.jpg'
 
 class Portfolio extends Component {
     constructor(props) {
