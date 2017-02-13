@@ -23,6 +23,9 @@ import LaneLineDetectorImage from './Projects/LaneLineDetector/lanelineimg.png'
 import RedditSearch from './Projects/RedditSearch/RedditSearch'
 import RedditSearchImage from './Projects/RedditSearch/redditsearch.png'
 
+import TrafficSignClassifier from './Projects/TrafficSignClassifier/TrafficSignClassifier'
+import TrafficSignClassifierImage from './Projects/TrafficSignClassifier/trafficsign.jpg'
+
 class Portfolio extends Component {
     constructor(props) {
         super(props)
@@ -34,6 +37,14 @@ class Portfolio extends Component {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-8 col-md-offset-2">
+                        <TrafficSignClassifier
+                        imageurl={TrafficSignClassifierImage}
+                        />
+
+                        <LaneLineDetector
+                            imageurl={LaneLineDetectorImage}
+                        />
+
                         <GameReviewApi
                         imageurl={GameReviewApiImage}
                         />
@@ -46,9 +57,6 @@ class Portfolio extends Component {
                         imageurl={RadarSensorImage}
                         />
 
-                        <LaneLineDetector
-                        imageurl={LaneLineDetectorImage}
-                        />
 
                         <RedditSearch
                         imageurl={RedditSearchImage}
