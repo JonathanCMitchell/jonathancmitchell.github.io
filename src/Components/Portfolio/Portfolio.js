@@ -14,6 +14,9 @@ import GameReviewApiImage from './Projects/GameReviewApi/game-review-api.png'
 import Omakase from './Projects/Omakase/Omakase'
 import OmakaseImage from './Projects/Omakase/tryomakase.png'
 
+import RadarSensor from './Projects/RadarSensor/RadarSensor'
+import RadarSensorImage from './Projects/RadarSensor/radar-sensor.png'
+
 class Portfolio extends Component {
     constructor(props) {
         super(props)
@@ -33,8 +36,8 @@ class Portfolio extends Component {
                         imageurl={OmakaseImage}
                         />
 
-                        <GameReviewApi
-                        imageurl={GameReviewApiImage}
+                        <RadarSensor
+                        imageurl={RadarSensorImage}
                         />
 
                         <GameReviewApi
