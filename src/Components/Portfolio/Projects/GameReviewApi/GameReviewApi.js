@@ -1,6 +1,7 @@
 /**
  * Created by jj on 2/12/17.
  * Display for GameReviewApi component
+ * TODO: Delete class on CardMedia tag inside component after images are all the same size
  *
  */
 import React from 'react'
@@ -9,28 +10,17 @@ import { Card, CardHeader, CardMedia, CardTitle, CardText, CardActions } from 'm
 const GameReviewApi = (props) => {
     return (
             <Card className="col-md-6 col-xs-12 Project-Card">
-                <CardHeader
-                    title="Game Review API"
-                    subtitle="An API with 16000 ign game reviews"
-                    avatar={props.iconurl}
-                />
-                <CardMedia
-                    overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-                >
-                    <img src={props.imageurl} />
+                <CardMedia>
+                    <img className="Project-media-GameReviewApi" src={props.imageurl} />
                 </CardMedia>
                 <CardTitle
                     title="Game Review API"
-                    subtitle="Card subtitle"
+                    subtitle="An api of 18 thousand game reviews from ign"
                 />
                 <CardText>
-
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.</li>
-                        <li>Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.</li>
-                        <li>Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.</li>
-                    </ul>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                 </CardText>
                     <CardActions>
                     <a href="http://gamereviewdocs.herokuapp.com">

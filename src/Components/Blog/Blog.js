@@ -63,13 +63,13 @@ class Blog extends Component {
             </div>
 
             <div>
-                <div className="col-md-6 col-md-offset-3">
+                <div className="col-md-6  col-xs-12 col-md-offset-1">
                     {this.state.essay1}
                 </div>
-                <div className="col-md-6 col-md-offset-3">
+                <div className="col-md-6 col-xs-12 col-md-offset-1">
                     {this.state.essay2}
                 </div>
-                <div className="col-md-6 col-md-offset-3">
+                <div className="col-md-6 col-xs-12 col-md-offset-1">
                     {this.state.essay3}
                 </div>
             </div>
