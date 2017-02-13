@@ -11,7 +11,7 @@ const GameReviewApi = (props) => {
     return (
             <Card className="col-md-6 col-xs-12 Project-Card">
                 <CardMedia>
-                    <img className="Project-media-GameReviewApi" src={props.imageurl} />
+                    <img className="Project-media-imageShrink" src={props.imageurl} />
                 </CardMedia>
                 <CardTitle
                     title="Game Review API"

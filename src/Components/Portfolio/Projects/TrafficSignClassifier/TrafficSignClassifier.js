@@ -17,7 +17,7 @@ const RedditSearch = (props) => {
     return (
         <Card className="col-md-6 col-xs-12 Project-Card">
             <CardMedia>
-                <img src={props.imageurl} />
+                <img className="Project-media-imageShrink" src={props.imageurl} />
             </CardMedia>
             <CardTitle
                 title="Traffic Sign Classifier"
