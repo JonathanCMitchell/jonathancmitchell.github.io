@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
@@ -18,6 +19,8 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
+    "homepage": "https://jonathancmitchell.github.io/jonathancmitchell.github.io/",
+    "deploy" : "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
