@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "express": "^4.14.1",
     "material-ui": "^0.16.7",
     "muicss": "^0.9.9-rc2",
+    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
@@ -20,7 +22,7 @@
   },
   "scripts": {
     "homepage": "https://jonathancmitchell.github.io/jonathancmitchell.github.io/",
-    "deploy" : "npm run build&&gh-pages -d build",
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
