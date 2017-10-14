@@ -534,6 +534,6 @@ iframe {
 }
 
 .game_api_img {
-  width: 200px;
-  height: 150px;
+  width: 200px !important;
+  height: 150px !important;
 }
