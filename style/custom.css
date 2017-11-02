@@ -5,8 +5,8 @@
 .dracarys-img {
     /*width: 415px !important;/**/
     /*height: 718px !important;*/
-    width: 599px;
-    height: 487px;
+    width: 100%;
+    height: 100%;
     position: relative;
     background-position: center;
     background-repeat: no-repeat;
