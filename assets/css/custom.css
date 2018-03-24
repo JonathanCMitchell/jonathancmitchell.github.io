@@ -27,17 +27,26 @@
     margin-top: 2%;
 }
 
-nav ul {
+.nav ul {
     list-style-type: none;
 }
-nav li {
+.nav li {
     line-height: 30px;
 }
-nav a {
+.nav a {
     text-decoration: none;
 }
-nav li.active a {
+.nav li.active a {
     color: #ffffff;
+}
+
+.container .sections-wrapper {
+    color: #41a6aa;
+}
+
+
+.icon-bar {
+    background-color: #41a6aa; !important;
 }
 /*
 #navigation {
