@@ -1,0 +1,92 @@
+.game_api_img {
+  width: 200px !important;
+  height: 150px !important;
+}
+.dracarys-img {
+    /*width: 415px !important;/**/
+    /*height: 718px !important;*/
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+}
+
+
+.profile{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-spacing: 10% !important;
+    border-color: #40A6A9 !important;
+    border-spacing: 10%;
+    border-style: solid;
+    margin-left: 15%;
+    margin-bottom: 4%;
+    margin-top: 2%;
+}
+
+nav ul {
+    list-style-type: none;
+}
+nav li {
+    line-height: 30px;
+}
+nav a {
+    text-decoration: none;
+}
+nav li.active a {
+    color: #ffffff;
+}
+/*
+#navigation {
+    min-height: 70px !important;
+    padding-top: 10px;
+}
+#navigation .navbar-brand {
+    padding-right: 28px;
+    width: 280px;
+    border-right: 3px solid rgba(255, 255, 255, 0.1);
+    font-family: "hobo-std", sans-serif;
+    font-style: italic;
+    font-size: 26px !important;
+    color: #5fcf80 !important;
+}
+#navigation .navbar-brand .site-logo {
+    float: left;
+    margin-top: -10px;
+    margin-right: 1rem;
+    width: 250px;
+}
+#navigation #navbar {
+    float: right !important;
+    margin-right: -15px;
+    font-family: 'Helvetica Rounded', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 38px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5) !important;
+}
+@media (max-width: 768px) {
+    #navigation #navbar {
+        float: none !important;
+        margin-right: 0;
+    }
+}
+#navigation #navbar .navbar-nav li a {
+    color: #b2bbbd !important;
+}
+#navigation #navbar .navbar-nav li a:hover,
+#navigation #navbar .navbar-nav li a:focus {
+    color: #ffffff !important;
+    border-bottom: 2px solid #ffffff !important;
+}
+#navigation #navbar .navbar-nav .active a {
+    color: #ffffff !important;
+    border-bottom: 2px solid #ffffff !important;
+}
+#navigation #navbar .navbar-nav .dropdown-menu li a {
+    color: #515151 !important;
+    text-shadow: none !important;
+}*/

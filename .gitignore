@@ -17,3 +17,5 @@ build
 npm-debug.log
 .idea*
 reactapp.md
+
+/old_site/
