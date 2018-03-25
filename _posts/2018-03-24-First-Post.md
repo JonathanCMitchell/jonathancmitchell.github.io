@@ -4,3 +4,7 @@ layout: post
 ---
 
 Some sample content
+### This first post will be about Keras. And some interesting keras tricks.
+* There are some very intersting things you can do with Keras
+Especially
+`These things `
