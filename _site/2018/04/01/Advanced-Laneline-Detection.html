@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Autonomous Vehicle Lane and Object Detector – Jonathan Mitchell – Computer Vision Engineer</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Github repo found here
+
+" />
+    <meta property="og:description" content="Github repo found here
+
+" />
+    
+    <meta name="author" content="Jonathan Mitchell" />
+
+    
+    <meta property="og:title" content="Autonomous Vehicle Lane and Object Detector" />
+    <meta property="twitter:title" content="Autonomous Vehicle Lane and Object Detector" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+
+<!-- I am not sure if XML feed works -->
+<link rel="alternate" type="application/rss+xml" title="Jonathan Mitchell - Computer Vision Engineer" href="/feed.xml" />
+
+
+<link rel="icon" href="/assets/img/neural_net_icon.png">
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- Global CSS -->
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">   
+<!-- Plugins CSS -->
+<link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.css">
+<!-- Theme CSS --> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/styles.css"> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/main.css"> 
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+<link rel="alternate" type="application/rss+xml"  href="http://localhost:4000/feed.xml" title="">
+
+<!-- Javascript -->          
+<script type="text/javascript" src="/assets/plugins/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+<!-- custom js -->
+<script type="text/javascript" src="/assets/js/main.js" ></script>
+<script type="text/javascript" src="/assets/js/background_animation.js" defer></script>
+
+  <!-- Google tracking code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67290545-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+  	<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="icon" href="/assets/images/neural_net_icon.png">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- Global CSS -->
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">   
+<!-- Plugins CSS -->
+<link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.css">
+<!-- Theme CSS --> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/styles.css"> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/main.css"> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/custom.css">
+
+<!-- FONT API -->
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- Javascript -->          
+<!-- JQUERY -->
+<script type="text/javascript" src="/assets/plugins/jquery-1.11.3.min.js"></script>
+<!-- BOOTSTRAP -->
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- BABEL -->
+<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+  <!-- Google tracking code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67290545-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<title>Jonathan C. Mitchell</title>
+
+</head>
+<body>
+ 
+<div class="navbar ">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" id="#navbutt" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-label="toggle naviation" aria-expanded ="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index.html">Home</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        
+        
+
+        
+
+        <li class="nav-item ">
+          <a class="nav-link" href="/resume.html" data-toggle="collapse" data-target=".navbar-collapse.in">Resume</a>
+        </li>
+        
+
+        
+
+        <li class="nav-item ">
+          <a class="nav-link" href="/blog.html" data-toggle="collapse" data-target=".navbar-collapse.in">Blog</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Javascript -->          
+
+<!-- custom js -->
+<script type="text/javascript" src="/assets/js/main.js" ></script>
+<script type="text/javascript" src="/assets/js/background_animation.js" defer></script>
+
+</body>
+</html>
+  	
+<!-- TODO INCLUDE SIDEBAR WITH BLOG DIRECTORY -->
+
+    <div class="wrapper-masthead">
+      <div class="container text-center">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="/assets/images/neural_net_icon.png" /></a>
+
+          <div class="site-info text-center">
+            <h1 class="site-name">Synapse</h1>
+            <h2 class="site-description">A Computer vision and Deep learning blog</h2>
+            <span>
+              <!-- Personal Info. -->
+              By <a href="/">Jonathan Mitchell</a>
+            </span>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1 align="center">Autonomous Vehicle Lane and Object Detector</h1>
+  <br>
+
+  <div class="entry">
+    <h4 id="github-repo-found-here">Github repo found <a href="https://github.com/JonathanCMitchell/ObjectDetector">here</a></h4>
+
+<h2 id="advanced-lane-line-detection">Advanced Lane Line Detection</h2>
+<h3 id="here-we-will-present-some-classical-computer-vision-techniques-on-how-to-identify-nearby-vehicles-and-lane-lines">Here we will present some classical computer vision techniques on how to identify nearby vehicles and lane lines.</h3>
+<center>Video of result</center>
+<center><a href="http://www.youtube.com/embed/YnIMM0QoqFU
+" target="_blank"><img src="http://img.youtube.com/vi/YnIMM0QoqFU/0.jpg" alt="Watch Video Here" width="480" height="180" border="10" /></a></center>
+
+<hr />
+
+<p>The goals / steps of this project are the following:</p>
+
+<ul>
+  <li>Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.</li>
+  <li>Apply a distortion correction to raw images.</li>
+  <li>Use color transforms, gradients, etc., to create a thresholded binary image.</li>
+  <li>Apply a perspective transform to rectify binary image (“birds-eye view”).</li>
+  <li>Detect lane pixels and fit to find the lane boundary.</li>
+  <li>Determine the curvature of the lane and vehicle position with respect to center.</li>
+  <li>Warp the detected lane boundaries back onto the original image.</li>
+  <li>Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.</li>
+</ul>
+
+<h3 id="important-files">Important files:</h3>
+
+<ul>
+  <li><a href="https://github.com/JonathanCMitchell/Advanced-Lane-Line-Detection/blob/master/laneFinder.py">LaneFinder.py</a></li>
+  <li><a href="https://github.com/JonathanCMitchell/Advanced-Lane-Line-Detection/blob/master/laneLineFinder.py">LaneLinderFinder.py</a></li>
+  <li><a href="https://github.com/JonathanCMitchell/Advanced-Lane-Line-Detection/blob/master/lanelines.py">lanelines.py</a></li>
+  <li><a href="https://github.com/JonathanCMitchell/Advanced-Lane-Line-Detection/blob/master/settings.py">settings.py</a></li>
+  <li><a href="https://github.com/JonathanCMitchell/Advanced-Lane-Line-Detection/blob/master/helpers.py">helpers.py</a></li>
+  <li><a href="https://github.com/JonathanCMitchell/Advanced-Lane-Line-Detection/blob/master/Perspective_transform.ipynb">Perspective transform.ipynb</a></li>
+  <li><a href="https://github.com/JonathanCMitchell/Advanced-Lane-Line-Detection/blob/master/Camera%20Calibration.ipynb">Camera_calibration.ipynb</a></li>
+</ul>
+
+<h3 id="we-will-break-lane-detection-down-into-three-stages">We will break Lane Detection down into three stages:</h3>
+<h3 id="stage-1-camera-distortion">Stage 1: Camera Distortion</h3>
+<ul>
+  <li>Our video stream was captured using a monocular camera. As such, we must correct the distortion that may occur. To do this, I used openCV’s <code class="highlighter-rouge">drawChessboardCoenrs</code> and
+<code class="highlighter-rouge">findChessboardCorners</code> functions. I then created two lists, <code class="highlighter-rouge">object_points</code> and <code class="highlighter-rouge">image_points</code>. Object points describe’s where each pixel in the image exists in a real world representation (X, Y, Z).
+Where image_points describe where each of those pixels are in the 2D .png image. We then compute the transformation matrix <code class="highlighter-rouge">mtx</code> and the distortion coefficient matrix <code class="highlighter-rouge">dist</code>, save them to a pickle file,
+because later on in stage 3 we will recall and use them in <code class="highlighter-rouge">cv2.undistort()</code>.</li>
+  <li>Code for this stage can be seen in Camera Calibration.ipynb</li>
+  <li>You can see the original and undistorted images below</li>
+  <li><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/original_undistorted.png" alt="original_undistorted" /></li>
+</ul>
+
+<h3 id="stage-2-perspective-transformation-inside-perspective-transformipynb">Stage 2: Perspective Transformation (inside Perspective Transform.ipynb):</h3>
+<ul>
+  <li>Our goal in this stage is to find source and destination points that we can use to warp our perspective to obtain an aerial view of the road.</li>
+  <li>This will allow us to calculate the distance in meters per pixel between the lane lines</li>
+  <li>It is also easier to work with the warped image inside the laneLine’s objects, because we are dealing with straight vertical lines instead of angles lines.</li>
+  <li>
+    <p>(it’s easier to see if our predicted lines are well drawn compared to the given lanes).</p>
+  </li>
+  <li>Steps in this stage</li>
+  <li>Read in the image</li>
+  <li>Undistort the image (using the transformation matrix and distortion coefficients from <code class="highlighter-rouge">Camera Calibration.ipynb</code></li>
+  <li>Convert the image to HLS</li>
+  <li>Apply canny edge detection on the Lightness layer of the HLS image. (This gives us a better representation of the lane lines).</li>
+  <li>Apply the Hough Transform to obtain coordinates for lines that are considered to be straight
+    <h4 id="finding-the-vanishing-point">Finding the vanishing point:</h4>
+    <p>The vanishing point in an image is the point where it looks like the picture can go on forever. If you recall photos of a sunset of a horizon where they appear to extend forever, that’s the point we are looking for.</p>
+  </li>
+  <li>a <a href="https://en.wikipedia.org/wiki/Vanishing_point">vanishing</a> point is a point in the image plane where the projections of a set of parallel lines in space intersect.</li>
+  <li>After we applied the Hough Transform we get coordinate sets inside a list</li>
+  <li>The vanishing point is the the <strong>intersection</strong> of all the lines built from the coordinates inside that list</li>
+  <li>It is the point with minimal squared distance from the lines in the hough list</li>
+  <li>The total squared distance</li>
+  <li>
+    <p><img src="/assets/images/Advanced-Lane-Line-Detection/eqn/eqn1.png" alt="equation1" /> (1)</p>
+  </li>
+  <li>where: I is the cost function, <strong>ni</strong> is the line normal to the hough lines and <strong>pi</strong> are the points on the hough lines</li>
+  <li>Then we minimize I w.r.t vp.</li>
+  <li><img src="/assets/images/Advanced-Lane-Line-Detection/eqn/eqn2.png" alt="equation2" /> (2)
+    <h4 id="finding-source-points">Finding source points:</h4>
+    <p>To find the source points using the vanishing point <code class="highlighter-rouge">vp</code>, we had to be clever.</p>
+  </li>
+  <li>So we have the vanishing point, which we can consider to be in the middle of our image. We want to locate a trapezoid that surrounds our lane lines.</li>
+  <li>We first declare two points <code class="highlighter-rouge">p1</code> and <code class="highlighter-rouge">p2</code> which are evenly offset from the vanishing point, and are closer to our vehicle.</li>
+  <li>Next, we want to find an additional two points <code class="highlighter-rouge">p3</code> and <code class="highlighter-rouge">p4</code> that exist on the line that connects p1 and vp, and p2 and vp.</li>
+  <li>After that we will have the four points for our trapezoid (p1, p2, p3, p4), p1 and p4 live on the same line as do p2 and p3.</li>
+  <li>We apply the equation (y2 - y1) = m (x2 - x1) and y = mx + b, and solve for x. (That is why we are using the inverse slope). This can be seen in <code class="highlighter-rouge">find_pt_inline</code></li>
+  <li>p1, p2, p3, and p4 form a trapezoid that will be our perspective transform region. our source points are [p1, p2, p3, p4].</li>
+  <li>The source points define the section of the image we will use for our warping transformation</li>
+  <li>The destination points are the where the source points will ultimately end up after we apply our warp. (pixels will be mapped from source points to destination points)</li>
+  <li><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/Vanishing_point.png" alt="vanishing_pt" /></li>
+  <li>Here you can see the vanishing point (blue triangle)</li>
+  <li><img src="{{" alt="perspective_transform" /></li>
+  <li>Here you can see the Trapezoid mask we will be using for our perspective transform. The source points are marked with the + and ^ dots.</li>
+</ul>
+
+<h4 id="finding-the-distance">Finding the distance</h4>
+<ul>
+  <li>A lot of the methods applied here were suggested by ajsmilutin in <a href="https://github.com/ajsmilutin/CarND-Advanced-Lane-Lines/blob/master/README.md">this</a> repository.</li>
+  <li>We use moments in order to find the distance between two lane lines in our warped images.</li>
+  <li>Lane lines are ~12 feet apart in the real world. We can use this info to find out how many pixels in our image equals 1 meter.</li>
+  <li>We find the area between the lane lines using the zeroth moment, then we divide the first moment by the zeroth moment to get a centroid, (the center point) for both the right and left lane lines in the x-dimension.</li>
+  <li>Now we find the minimum distance between the two centroids and define that to be our lane width. Then convert the lane width from feet to meters and now we have our pixels per meter in x.
+In our warped image there is no depth, it is planar. Therefore the Z in our homography matrix is 0. With that information, now all we have to do is determine the y-component from the x-component. 
+We do this by scaling the x-dimension slot in the homography matrix by the y-dimension slot. Then we multiply that scaled value by our x_pixels_per_meter to obtain the y_pixels_per_meter.</li>
+  <li>x_pixel_per_meter:  53.511326971489076</li>
+  <li>y_pixel_per_meter:  37.0398121547</li>
+  <li><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/lane_lines_with_centroid_markings.png" alt="lane_lines_center_markings" /></li>
+  <li>You can see the centroids as the marked points in this image</li>
+  <li>Then we save everything to a pickle file and move on to our lane line identification stage.</li>
+  <li>Code for this stage can be seen inside Perspective_Transform.ipynb</li>
+</ul>
+
+<h3 id="stage-3-lane-line-identification-inside-lanefinderpy-and-lanelinefinderpy">Stage 3: Lane Line Identification (inside LaneFinder.py and LaneLineFinder.py)</h3>
+<h4 id="step-1-lane-detection-lanefinderpy">Step 1: Lane detection (LaneFinder.py)</h4>
+<h4 id="preprocessing">Preprocessing:</h4>
+<ul>
+  <li>First we undistort the image</li>
+  <li>Then we warp the image into an aerial view</li>
+  <li><img src="{{" alt="warped" /></li>
+</ul>
+
+<h4 id="filtering-in-lanefinderpy">Filtering: (in LaneFinder.py)</h4>
+<ul>
+  <li>We first create two copies of our warped image, an <code class="highlighter-rouge">hls</code> and a <code class="highlighter-rouge">lab</code> colorspace copy.</li>
+  <li>apply a median blur to both copies
+    <h5 id="detect-yellow-lane">Detect yellow lane:</h5>
+  </li>
+  <li>Restrict hue values &gt; 30 because lines should typically be a similar color angle</li>
+  <li>Restrict saturation values &lt; 50 because it is just noise at this point</li>
+  <li>Cutoff lightness values &gt; 190</li>
+  <li>AND the hls filter with the b layer in <code class="highlighter-rouge">lab</code>, for which values &gt; 127.5 correspond to <font color="yellow">yellow</font></li>
+  <li>Everything up to this point that we have detected is the nature (trees to the left and right of the lane)</li>
+  <li>Create a mask that is everything EXCEPT this nature piece (NOT)</li>
+  <li>AND the mask with lightness values &lt; 245</li>
+  <li>Perform morphological operations: Opening followed by Dilation. Which is considerd <code class="highlighter-rouge">Tophat</code></li>
+  <li>Kernel sizes were selected manually through trial and error. A larger kernel rules out more noise, and a smaller kernel is designed to pick up small disturbances.</li>
+  <li>Tophat the <code class="highlighter-rouge">lab</code>, <code class="highlighter-rouge">hls</code>, and the <code class="highlighter-rouge">yellow</code> filter. Tophat reduces noise from tiny pixels. Tophat = opening + dilation. Read about it <a href="http://docs.opencv.org/3.2.0/d3/dbe/tutorial_opening_closing_hats.html">here</a></li>
+  <li>See the filters here:</li>
+  <li>This is what the <code class="highlighter-rouge">hls</code> luminance filter picked up:</li>
+  <li>
+    <p><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/hls_luminance_filtering_difference.png" alt="hls_filter" /></p>
+  </li>
+  <li>Here is the <code class="highlighter-rouge">hls</code> saturation filter</li>
+  <li>
+    <p><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/hsl_saturation_luminance_filtering.png" alt="hls_saturation_filter" /></p>
+  </li>
+  <li>Here is the region of interest filter (after we NOT the nature part)</li>
+  <li>
+    <p><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/region_of_interest_mask.png" alt="roi_mask" /></p>
+  </li>
+  <li>Then we perform adaptive thresholding (LaneFinder.py)</li>
+  <li>Then we combine this mask with the roi_mask to create a difference mask (shown below)</li>
+  <li>
+    <p><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/difference_mask.png" alt="difference_mask" /></p>
+  </li>
+  <li>Then we perform erosion on the difference mask to obtain the total mask.</li>
+  <li>I tried using 5x5 kernels at first for this erosion step. Ellipses were the best kernel shape because they will erode isolated pixels, but when the kernel size was (5, 5) it was too large and it started to erode the pixels that correspond to dashes inside the lane lines. So (3, 3) was the best option, even though occasionally it may remove pixels in between the lane lines.</li>
+  <li><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/total_mask_erode_kernel_3.png" alt="total_maskl" /></li>
+  <li>Now we pass this binary mask into our LaneLineFinder instance.
+    <h4 id="step-2-line-detection-lanelinefinderpy">Step 2: Line detection (LaneLineFinder.py)</h4>
+  </li>
+  <li>Input:</li>
+  <li>
+    <p><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/test_mask.png" alt="binary_mask" /></p>
+  </li>
+  <li>The LaneLineFinder finds one lane line, either left or right given a warped image (aerial view)
+    <h4 id="pt1-lanelinefinder-get_initial_coefficients">pt1: LaneLineFinder get_initial_coefficients</h4>
+  </li>
+  <li>Take the bottom vertical half of the image and compute the vertical sum of the pixel values (histogram)</li>
+  <li>Find the max index, and use that as a starting point</li>
+  <li>Then search for small window boxes from the bottom up to find the max pixel density (that is where the lane lines are)</li>
+  <li><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/new_newfit.png" alt="window_boxes" /></li>
+  <li>Save the good centroids to a list</li>
+  <li>Calculate the coefficients for the equation f(x) = ay^2 + by + c. You can see this line 188 as the result of <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html">np.polyfit</a>
+    <h4 id="pt2-for-the-next-frame-use-get_next_coefficients">pt2: For the next frame, use get_next_coefficients</h4>
+  </li>
+  <li>Since we know where the lane lines were from the first frame, we don’t have to start our search from scratch.</li>
+  <li>Scan around the previous coefficients for the next lane line marking within a reasonable margin (line 77)</li>
+  <li>We look within a margin for the next point, instead of scanning the entire image from scratch again</li>
+  <li>If there is a large deviation from the average, then our line is not good, and we set our found property to false, then in our LaneFinder we will use the previous good line instead of this line</li>
+  <li>You can see this feature in the video stream. When the lane line starts to drive off and deviate from the previous line it resets back to the previous good line</li>
+  <li>Now we have the coefficients
+    <h4 id="pt3-use-get_line_pts">pt3: Use get_line_pts</h4>
+  </li>
+  <li>Here we pass in the coefficients and receive our X and Y values to plot.
+    <h4 id="pt4-use-draw_lines">pt4: Use draw_lines</h4>
+  </li>
+  <li>Here we take in the x and y coordinates as <code class="highlighter-rouge">fitx</code> and <code class="highlighter-rouge">plot_y</code> respectively</li>
+  <li>Then we calculate our lane points and fill a window with <a href="http://docs.opencv.org/3.0-beta/modules/imgproc/doc/drawing_functions.html">cv2.fillPoly</a>. This gives us extra padding on the left and right of the line so it looks thick</li>
+  <li>Then we pass our lane points into <code class="highlighter-rouge">draw_pw</code> which draws each segment inside a for loop</li>
+  <li>Then we return the drawn lines to LaneFinder</li>
+  <li>If the line wasn’t detected we simply use the previous lane line.
+    <h4 id="pt5-calculate-curvature">pt5: Calculate curvature</h4>
+  </li>
+  <li>inside get_curvature line we calculate the curvature following <a href="http://www.intmath.com/applications-differentiation/8-radius-curvature.php">this</a> procedure</li>
+  <li>We use the x_pixels_per meter and y_pixels_per_meter that we found in our perspective transform notebook (stage 2)
+    <h4 id="last-part-receive-lines-in-lanefinder">last part: Receive lines in LaneFinder</h4>
+  </li>
+  <li>Then we receive the lines for the left and right lane line as LaneFinder.left_line and LaneFinder.right_line respectively.</li>
+  <li>Then we use <a href="http://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html">cv2.add_weighted</a> with the warped image and the combination of both the lane lines.</li>
+  <li>Then we unwarp the image and return it</li>
+  <li>I calculated the center place using the last fit coordinates of the left and right lines</li>
+  <li>I used the left fit coordinate and the right fit coordinates to determine the accurate indices to draw the middle lane.</li>
+  <li><img src="/assets/images/Advanced-Lane-Line-Detection/output_images/0drawn_on.jpg" alt="drawn_line" /></li>
+</ul>
+
+<h2 id="reflection">Reflection</h2>
+<ul>
+  <li>I attempted to structure my basic outline similar to how ajsmilutin did in <a href="https://github.com/ajsmilutin/CarND-Advanced-Lane-Lines/blob/master/README.md">this</a> repository. However my implementation details and methods are far different. I experimented with many different kernels, and it turns out, the ones he used in his process are the best. I tried to prove him wrong and use (29, 29)’s for the first erosion, but it ended up not working properly.</li>
+  <li>In fact. I used a lot of what he did, and it took me a LONG time to wrap my head around how it works. The OOP structure he uses in his implementation was new to me, because I don’t have that much experience with OOP programming in python, so I learned a lot by trying to reproduce what he did, except I did it in a very different way. I used an adaptive thresholding technique instead of doing sobelx, sobely, and magnitude gradients because it proves to be far better in performance on the challenge video. Even though I couldn’t get the challenge video to work well for my implementation. Credit where credit is due, I learned a TON about filtering from ajsmulitin.</li>
+  <li>I should have created a reset option, so that if the detected line deviates too far from the average we will do a complete reset and then look for the next line as if it was the first line.
+This would help solve the challenge video.</li>
+  <li>I still need to create an averaging function so that the drawn lines are drawn from the coefficients of the previous 5 frames for smoothing.</li>
+  <li>I also received the idea for using the histogram from Udacity’s starter code.</li>
+  <li>Originally I tried using a convolutional window, but it proved to not work as well. I was using a rectangular window for a very long time, and it was receiving outputs that did not correspond to the index of my max argument. Later on I discovered that I should be using a gaussian filter, so that the peak will be clear.</li>
+  <li>I would not have been able to figure out how to use moments to find centroids with ajsmulitins code. It was hard for me to disect his code and see exactly what it was doing. Not an easy task.</li>
+  <li>Special thanks to Kyle Stewart-Frantz who helped me think about how to find the deviations</li>
+  <li>Originally I was working with jupyter notebooks, and then I got pycharm and my life changed when I figured out how to use the debugger. Completely necessary!!</li>
+  <li>I used a pandas dataframe to test individual image sequences without having to process the entire video.I converted the video into a csv and img folder. The code for this can be seen in VideoAcquisition.ipynb</li>
+</ul>
+
+<h4 id="twitter-jonathancmitch">Twitter: <a href="https://twitter.com/jonathancmitch">@jonathancmitch</a></h4>
+<h4 id="linkedin-httpswwwlinkedincominjonathancmitchell">Linkedin: <a href="https://twitter.com/jonathancmitch">https://www.linkedin.com/in/jonathancmitchell</a></h4>
+<h4 id="github-githubcomjonathancmitchell">Github: <a href="github.com/jonathancmitchell">github.com/jonathancmitchell</a></h4>
+<h4 id="medium-httpsmediumcomjmitchell1991">Medium: <a href="https://medium.com/@jmitchell1991">https://medium.com/@jmitchell1991</a></h4>
+
+<h4 id="tools-used">Tools used</h4>
+<ul>
+  <li><a href="http://www.numpy.org/">Numpy</a></li>
+  <li><a href="http://pandas.pydata.org/">OpenCV3</a></li>
+  <li><a href="https://www.python.org/">Python</a></li>
+  <li><a href="http://pandas.pydata.org/">Pandas</a></li>
+  <li><a href="http://matplotlib.org/api/pyplot_api.html">Matplotlib</a></li>
+  <li><a href="http://scikit-learn.org/">SciKit-Learn</a></li>
+</ul>
+
+  </div>
+
+  <div class="date">
+    Written on April  1, 2018
+  </div>
+
+</article>
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="https://github.com/jonathancmitchell"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/jonathancmitch"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-109858309-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2018/04/01/Advanced-Laneline-Detection.html',
+		  'title': 'Autonomous Vehicle Lane and Object Detector'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

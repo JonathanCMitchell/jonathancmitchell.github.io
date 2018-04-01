@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vehicle Detection – Jonathan Mitchell – Computer Vision Engineer</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Vehicle Detection
+
+" />
+    <meta property="og:description" content="Vehicle Detection
+
+" />
+    
+    <meta name="author" content="Jonathan Mitchell" />
+
+    
+    <meta property="og:title" content="Vehicle Detection" />
+    <meta property="twitter:title" content="Vehicle Detection" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+
+<!-- I am not sure if XML feed works -->
+<link rel="alternate" type="application/rss+xml" title="Jonathan Mitchell - Computer Vision Engineer" href="/feed.xml" />
+
+
+<link rel="icon" href="/assets/img/neural_net_icon.png">
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- Global CSS -->
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">   
+<!-- Plugins CSS -->
+<link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.css">
+<!-- Theme CSS --> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/styles.css"> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/main.css"> 
+<link rel="stylesheet" href="/assets/css/custom.css">
+
+<link rel="alternate" type="application/rss+xml"  href="http://localhost:4000/feed.xml" title="">
+
+<!-- Javascript -->          
+<script type="text/javascript" src="/assets/plugins/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+<!-- custom js -->
+<script type="text/javascript" src="/assets/js/main.js" ></script>
+<script type="text/javascript" src="/assets/js/background_animation.js" defer></script>
+
+  <!-- Google tracking code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67290545-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+
+  	<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="icon" href="/assets/images/neural_net_icon.png">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- Global CSS -->
+<link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">   
+<!-- Plugins CSS -->
+<link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.css">
+<!-- Theme CSS --> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/styles.css"> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/main.css"> 
+<link id="theme-style" rel="stylesheet" href="/assets/css/custom.css">
+
+<!-- FONT API -->
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- Javascript -->          
+<!-- JQUERY -->
+<script type="text/javascript" src="/assets/plugins/jquery-1.11.3.min.js"></script>
+<!-- BOOTSTRAP -->
+<script type="text/javascript" src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- BABEL -->
+<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+  <!-- Google tracking code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67290545-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<title>Jonathan C. Mitchell</title>
+
+</head>
+<body>
+ 
+<div class="navbar ">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" id="#navbutt" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-label="toggle naviation" aria-expanded ="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index.html">Home</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        
+        
+
+        
+
+        <li class="nav-item ">
+          <a class="nav-link" href="/resume.html" data-toggle="collapse" data-target=".navbar-collapse.in">Resume</a>
+        </li>
+        
+
+        
+
+        <li class="nav-item ">
+          <a class="nav-link" href="/blog.html" data-toggle="collapse" data-target=".navbar-collapse.in">Blog</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Javascript -->          
+
+<!-- custom js -->
+<script type="text/javascript" src="/assets/js/main.js" ></script>
+<script type="text/javascript" src="/assets/js/background_animation.js" defer></script>
+
+</body>
+</html>
+  	
+<!-- TODO INCLUDE SIDEBAR WITH BLOG DIRECTORY -->
+
+    <div class="wrapper-masthead">
+      <div class="container text-center">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="/assets/images/neural_net_icon.png" /></a>
+
+          <div class="site-info text-center">
+            <h1 class="site-name">Synapse</h1>
+            <h2 class="site-description">A Computer vision and Deep learning blog</h2>
+            <span>
+              <!-- Personal Info. -->
+              By <a href="/">Jonathan Mitchell</a>
+            </span>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1 align="center">Vehicle Detection</h1>
+  <br>
+
+  <div class="entry">
+    <h1 id="vehicle-detection">Vehicle Detection</h1>
+
+<h2 id="important-files">Important files</h2>
+<ul>
+  <li>model.py (builds SVM classifier and trains on training data)</li>
+  <li>Processor.py (overlaying processor that runs the pipeline on a video stream input)</li>
+  <li>settings.py (settings for tuned parameters)</li>
+  <li>Car_Detector.py (contains Car_Detector class that applies the model to detect cars and draws rectangular boxes on images)</li>
+  <li>helpers.py (contains helper functions for feature extraction and sliding window implementation)
+    <h2 id="training-data">Training data:</h2>
+  </li>
+  <li>Our training dataset consists of 17760 images. 8792 non-vehicles and 8968 vehicles. We split our training and validation sets with 80% 20% respectively. So our training dataset was ~14208 images. The data looks like this
+<img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/examples/car_not_car.png" alt="car_not_car" /></li>
+</ul>
+
+<h3 id="process">Process:</h3>
+<h2 id="1-training-data-modelpy">1) Training data (model.py)</h2>
+<ul>
+  <li>Grab the training data and extract image paths and store them in the model class</li>
+  <li>Train a linear Support Vector Machine (lines 54 - 57)</li>
+  <li>Split the training data using <code class="highlighter-rouge">train_test_split</code>. Keep in mind that we are using training data as validation data, so there is some overfitting there. On a time series analysis it would be more robust to check a time-range and split validation data so that it has distinct times from the training data</li>
+  <li>Normalize the training data using mean - std normalization, using scikit’s <code class="highlighter-rouge">StandardScaler</code> (line 49)</li>
+  <li>Set the LinearSVC’s C parameter to 0.01 so that it’s predictions will be less attached to the dataset and able to generalize better</li>
+  <li>Train the model on the data</li>
+  <li>Save the LinearSVC (Linear Support Vector Machine) to a pickle file as well as other parameters and move to step 2 (line 79)</li>
+</ul>
+
+<h2 id="2-car-detection-helperspy">2) Car detection (helpers.py)</h2>
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/pipeline1.jpg" /></div>
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/pipeline2.jpg" /></div>
+
+<h3 id="in-car_helpersfind_cars-helperspy-implemented-in-get_detections-inside-car_detectorpy">In Car_helpers.find_cars (helpers.py) implemented in get_detections() inside Car_Detector.py</h3>
+<h4 id="sliding-window-implementation">Sliding Window Implementation</h4>
+<p>Instead of creating random sliding windows, extract features from an entire region of the image, and then use those cells to determine if there is a vehicle present.</p>
+<ul>
+  <li>Extract out a section of the image (height from ystart to ystop as defined by the function caller in Car_Detector.py) and all width.</li>
+  <li>Extract the HOG features for the entire section of the image</li>
+  <li>Here is what HOG features gives us</li>
+</ul>
+
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_images_pyramid.png" /></div>
+
+<ul>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsample_search_region.png" alt="HOG_subsample" /></li>
+  <li>Above: You can see the region we are using for our sub image between the light and dark blue lines</li>
+  <li>Scale the extracted section by a <code class="highlighter-rouge">scale</code> parameter (line 168)</li>
+  <li>Extract each channel from the scaled image</li>
+  <li>Calculate the number of blocks in x and y</li>
+  <li>Create multiple search windows with different scales and different regions (I used 3)</li>
+  <li>Create a step size <code class="highlighter-rouge">(cells_per_window / step_size) = % overlap</code></li>
+  <li>Discover how many vertical and horizontal steps you will have</li>
+  <li>Calculate <a href="http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html">HOG</a> features for each channel lines</li>
+  <li>Consider the scaled image to be in position space, not image space. We treat sections of the image as a grid in terms of whole integer values instead of in pixel values. See image below on how to grid looks</li>
+</ul>
+
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/hand_gridout.jpg" /></div>
+
+<ul>
+  <li>We will move from grid space back into image space later on don’t worry</li>
+  <li>For now, consider xpos and ypos to be grid positions (from left to right)</li>
+  <li>Iterate through the grid (in y then x) lines</li>
+  <li>Grab a subsample of the hog features corresponding to the current cell</li>
+  <li>stack the features (line 203)</li>
+  <li>go from grid space to pixel space now xleft and ytop are in image space</li>
+  <li>extract the image patch (as defined by the boundaries of xleft and ytop and the window size)</li>
+  <li>get the spatial and histogram features using <code class="highlighter-rouge">spatial_features</code> and <code class="highlighter-rouge">hist_features</code> which are defined in helpers.py</li>
+  <li>Normalize the features using <code class="highlighter-rouge">X_scaler</code> from model.py</li>
+  <li>Stack the features</li>
+  <li>Compute the prediction from the Support Vector Machine and the confidence</li>
+  <li>If the prediction is 1 and the decision function confidence is &gt; 0.6 then we have detected a car</li>
+  <li>Rescale <code class="highlighter-rouge">xbox_left</code> and <code class="highlighter-rouge">ytop_draw</code> to go from our current image space (which is scaled) to real image space by multiplying it by the scaling factor <code class="highlighter-rouge">scale</code></li>
+  <li>Use the drawing window dimensions to build (x1, y1, x2, y2) detection coordinates which will help us build a heatmap for the detected cars location</li>
+  <li>Add those detections to our <code class="highlighter-rouge">detections</code> list</li>
+</ul>
+
+<h4 id="in-car_finderget_centroid_rectangles">In Car_Finder.get_centroid_rectangles</h4>
+<ul>
+  <li>Take in the output from <code class="highlighter-rouge">Car_Finder.find_cars</code> (which are the detection coordinates above)</li>
+  <li>Take in the detection coordinates and update the heatmap by adding 5 to each value within the heatmap’s bounding box</li>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsampling_on_test1.png" alt="hog_subsampling_on_test1" /></li>
+  <li>
+    <p>Above, as you can see we have more than one bounding box. Therefore we need to apply a heatmap in order to determine an accurate region for the vehicle and only draw one box</p>
+  </li>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/processed_test_img1_and_heatmap.png" alt="image_heatmap_sidebyside" /></li>
+  <li>As you can see, sometimes we get detections that are false positives, in order to remove these false positives we apply a thresholding function</li>
+  <li>Remove the values where the heatmap’s values are &lt; threshold. So it takes ~4 heat maps to pass through the thresholder</li>
+  <li>Before we threshold, we take an average of the last 10 heat maps if 10 heat maps have been saved, then we insert this map into our thresholder</li>
+  <li>Averaging allows us to rule out bad values and creates a smoother transition between frames</li>
+  <li>Then we find the contours for the binary image, (which are basically the large shapes created from the heatmap)</li>
+  <li>Then we create bounding boxes from these contours</li>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsampling_on_test4.png" alt="HOG_subsampling_on_test4" /></li>
+  <li>Above you can see that we have some false positives in the opposing lane, therefore we will rule out any boxes that occur at width &lt; 50 because this area corresponds to the opposing highway. We do this on line 91</li>
+  <li>Grab the coordinates of the bounding box and append them to <code class="highlighter-rouge">centroid_rectangles</code> which we will pass to our <code class="highlighter-rouge">draw_centroids</code> helper function
+    <h4 id="draw-centroids-in-helperspy">Draw Centroids (in helpers.py)</h4>
+  </li>
+  <li>Get the centroid coordinates and the original image and draw a rectangle with the coordinates given</li>
+  <li>Return this image.</li>
+  <li>Note: I got the idea to find the contours from <a href="https://github.com/kylesf">Kyle Stewart-Frantz</a></li>
+</ul>
+
+<h4 id="helper-functions-in-helperspy">Helper functions (in helpers.py)</h4>
+<ul>
+  <li><strong>Extract_features</strong> (lines 61 - 112). This function takes in list of image paths, reads the images, then extracts the spatial, histogram, and hog features of those images and saves them. This occurs in our preprocessing pipeline when we are training the model. Our SVM does not extract features itself, so we have to extract them from images, similar to how a multi-layer perceptron works, in contrast with how CNN’s work.</li>
+  <li>We extract features using three helper functions:</li>
+  <li><strong> bin_spatial </strong>: This function resizes our image to a desired size and then flattens it, giving us the pixel values in a flattened row vector</li>
+  <li><strong> color_hist</strong>: This function computes the histogram for each color channel and then concatenates them together</li>
+  <li><strong> get_hog_features</strong>: This function computes the histogram of oriented gradient and returns a 1-D array of the HOG features</li>
+  <li>Then inside Extract_features we grab all of these features for each image and then add them to our <code class="highlighter-rouge">features</code> list. So <code class="highlighter-rouge">features</code> contains the features for the entire data set where a <code class="highlighter-rouge">file_feature</code> contains the features for one image
+THE END</li>
+</ul>
+
+<h3 id="details-parameter-selection-tuning-paramsods">Details (Parameter selection) (tuning params.ods)</h3>
+<h4 id="color-space">Color Space:</h4>
+<ul>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/tuning_params.png" alt="tuning_params" /></li>
+  <li>Above: I tried these different parameters and tested the SVM’s predictions on a single image. I chose the YCrCb ALL channel color space because it gave me the best accuracy at training time</li>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/YCrCb_detection_ALL_Channel.png" alt="YCrCb_allChannel" /></li>
+  <li>Above: Result of training using YCrCb color space</li>
+  <li>This gives us the best result with an accuracy of 99.5. Don’t be fooled by the 1.0 in the grid of parameter tests, that was only sampled for one image</li>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/LUV_detection_L_channel.png" alt="LUV_detection_L_channel" /></li>
+  <li>Above: Result of training using L channel in LUV color space</li>
+  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/LUV_detection_V_channel.png" alt="LUV_detection_V_channel" /></li>
+  <li>Above: Result of training using V channel in LUV color space
+    <h4 id="orientations">Orientations:</h4>
+  </li>
+  <li>I chose to use 9 orientations</li>
+</ul>
+
+<h4 id="performance-optimizations">Performance Optimizations:</h4>
+<ul>
+  <li>I stored all my image paths in a pandas dataframe. I processed each image and viewed the results to see how well my pipeline works. When using the summing method, I started out with a threshold of 0.6 * 10 ~ 60. I later tuned this threshold to be 0.58 * 10 = 58. If I used 56 I would start drawing boxes in the middle of the road.</li>
+  <li>I did not create a new image to draw on each time, I simply drew on the input image. I didn’t want to process more things.</li>
+</ul>
+
+<h2 id="video-of-result">Video of result</h2>
+<p><a href="http://www.youtube.com/embed/YaHjdLbfChE " target="_blank"><img src="http://img.youtube.com/vi/YaHjdLbfChE/0.jpg" alt="Watch Video Here" width="480" height="180" border="10" /></a></p>
+
+<h2 id="final-result-image">Final Result Image:</h2>
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/final_result.jpg" /></div>
+
+<h2 id="reflection">Reflection:</h2>
+<p>I tried a lot of different methods to get the most accurate pipeline. In theory, saving the state of the heatmap for subsequent images should work if you cool the regions where there are not current detections. This approach seems to work fairly well as you can see in the Video for heatmap cooling above. However, it involves storing more information because you have to save the state of the current heatmap to memory and it increases computation time. I like the idea of it, although determining the thresholds for it was rather difficult and involved a fair amount of evaluation.</p>
+
+<p>The heatmap summming approach allows me to work with whole number thresholds instead of decimal thresholds (which are used in the averaging approach). Other than that it performs relatively the same as the averaging approach. I scaled the threshold value based on the number of heatmaps that are stored in the <code class="highlighter-rouge">heatmaps</code> queue.</p>
+
+<p>As I pass through the lightly colored road I lose a detection on the white vehicle. This is simply due to the model parameters and the prediction constraints. At this point I do not have an accurate prediction, so no bounding box is drawn. The model is only as good as the data.</p>
+
+<p>At one point in the video the bounding box splits into two bounding boxes when it should be one bounding box. This happened because cv2.findContours found two contours due to the upper and lower section of the bounding boxes.</p>
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_averaged_heatmap.png" /></div>
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_binary_threshold1.png" /></div>
+<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_double_box.jpg" /></div>
+<p>(Above) as you can see in this case the <a href="http://docs.opencv.org/trunk/d4/d73/tutorial_py_contours_begin.html">cv2.findContours</a> function inside get_centroid_rectangles detects two different contours, and that’s why two bounding boxes were drawn.</p>
+
+<h4 id="twitter-jonathancmitch">Twitter: <a href="https://twitter.com/jonathancmitch">@jonathancmitch</a></h4>
+<h4 id="linkedin-httpswwwlinkedincominjonathancmitchell">Linkedin: <a href="https://twitter.com/jonathancmitch">https://www.linkedin.com/in/jonathancmitchell</a></h4>
+<h4 id="github-githubcomjonathancmitchell">Github: <a href="github.com/jonathancmitchell">github.com/jonathancmitchell</a></h4>
+<h4 id="medium-httpsmediumcomjmitchell1991">Medium: <a href="https://medium.com/@jmitchell1991">https://medium.com/@jmitchell1991</a></h4>
+
+<h4 id="tools-used">Tools used</h4>
+<ul>
+  <li><a href="http://www.numpy.org/">Numpy</a></li>
+  <li><a href="http://pandas.pydata.org/">OpenCV3</a></li>
+  <li><a href="https://www.python.org/">Python</a></li>
+  <li><a href="http://pandas.pydata.org/">Pandas</a></li>
+  <li><a href="http://matplotlib.org/api/pyplot_api.html">Matplotlib</a></li>
+  <li><a href="http://scikit-learn.org/">SciKit-Learn</a></li>
+</ul>
+
+  </div>
+
+  <div class="date">
+    Written on April  1, 2018
+  </div>
+
+</article>
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="https://github.com/jonathancmitchell"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/jonathancmitch"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-109858309-1', 'auto');
+		ga('send', 'pageview', {
+		  'page': '/2018/04/01/Vehicle-Detection.html',
+		  'title': 'Vehicle Detection'
+		});
+	</script>
+	<!-- End Google Analytics -->
+
+
+  </body>
+</html>

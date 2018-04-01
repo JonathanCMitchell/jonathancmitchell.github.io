@@ -54,6 +54,20 @@
 
     
     <url>
+        <loc>/2018/04/01/Vehicle-Detection.html</loc>
+        <lastmod>2018-04-01</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>/2018/04/01/Advanced-Laneline-Detection.html</loc>
+        <lastmod>2018-04-01</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
         <loc>/2018/03/24/First-Post.html</loc>
         <lastmod>2018-04-01</lastmod>
         <changefreq>daily</changefreq>
