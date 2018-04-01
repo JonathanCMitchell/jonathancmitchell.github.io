@@ -36,9 +36,9 @@
 .nav a {
     text-decoration: none;
 }
-.nav li.active a {
+/*.nav li.active a {
     color: #ffffff;
-}
+}*/
 
 .container .sections-wrapper {
     color: #41a6aa;

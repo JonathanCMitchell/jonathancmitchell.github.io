@@ -2,7 +2,7 @@
 #   url: /index.html
 - title: Resume
   url: /resume.html
-- title: Portfolio
-  url: /portfolio.html
+#- title: Portfolio
+# url: /portfolio.html
 - title: Blog
   url: /blog.html
