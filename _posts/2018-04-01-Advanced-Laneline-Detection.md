@@ -9,7 +9,7 @@ layout: post
 <center>Video of result</center>
 <center><a href="http://www.youtube.com/embed/YnIMM0QoqFU
 " target="_blank"><img src="http://img.youtube.com/vi/YnIMM0QoqFU/0.jpg" 
-alt="Watch Video Here" width="480" height="180" border="10" /></a></center>
+alt="Watch Video Here" border="10" /></a></center>
 
 ---
 

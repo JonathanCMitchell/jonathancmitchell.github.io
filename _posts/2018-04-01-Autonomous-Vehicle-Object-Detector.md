@@ -5,8 +5,13 @@ layout: post
 
 
 ### Here we will present some classical computer vision techniques on how to identify nearby vehicles and lane lines. 
+<center>Video of result</center>
+<center><a href="http://www.youtube.com/embed/YnIMM0QoqFU
+" target="_blank"><img src="http://img.youtube.com/vi/YnIMM0QoqFU/0.jpg" 
+alt="Watch Video Here" border="10" /></a></center>
 
-## Important files can be found [here](https://github.com/JonathanCMitchell/Vehicle-Detection/)
+
+### Important files can be found [here](https://github.com/JonathanCMitchell/Vehicle-Detection/)
 * model.py (builds SVM classifier and trains on training data)
 * Processor.py (overlaying processor that runs the pipeline on a video stream input)
 * settings.py (settings for tuned parameters)
