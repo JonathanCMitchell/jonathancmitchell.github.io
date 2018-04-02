@@ -12,11 +12,11 @@ alt="Watch Video Here" border="10" /></a></center>
 
 
 ### Important files can be found [here](https://github.com/JonathanCMitchell/Vehicle-Detection/)
-* model.py (builds SVM classifier and trains on training data)
-* Processor.py (overlaying processor that runs the pipeline on a video stream input)
-* settings.py (settings for tuned parameters)
-* Car_Detector.py (contains Car_Detector class that applies the model to detect cars and draws rectangular boxes on images)
-* helpers.py (contains helper functions for feature extraction and sliding window implementation)
+* [model.py](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/model.py) (builds SVM classifier and trains on training data)
+* [Processor.py](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/model.py) (overlaying processor that runs the pipeline on a video stream input)
+* [settings.py](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/settings.py) (settings for tuned parameters)
+* [Car_Detector.py](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/Car_Detector.py) (contains Car_Detector class that applies the model to detect cars and draws rectangular boxes on images)
+* [helpers.py](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/helpers.py) (contains helper functions for feature extraction and sliding window implementation)
 ## Training data:
 * Our training dataset consists of 17760 images. 8792 non-vehicles and 8968 vehicles. We split our training and validation sets with 80% 20% respectively. So our training dataset was ~14208 images. The data looks like this
 <img src = "/assets/images/Vehicle-Detection/examples/car_not_car.png" width="60%"/>
