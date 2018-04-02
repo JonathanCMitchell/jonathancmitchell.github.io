@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vehicle Detection – Jonathan Mitchell – Computer Vision Engineer</title>
+    <title>Autonomous Vehicle Object Detector using classical Computer Vision techniques – Jonathan Mitchell – Computer Vision Engineer</title>
 
         <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -9,18 +9,18 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="Vehicle Detection
+    <meta name="description" content="Here we will present some classical computer vision techniques on how to identify nearby vehicles and lane lines.
 
 " />
-    <meta property="og:description" content="Vehicle Detection
+    <meta property="og:description" content="Here we will present some classical computer vision techniques on how to identify nearby vehicles and lane lines.
 
 " />
     
     <meta name="author" content="Jonathan Mitchell" />
 
     
-    <meta property="og:title" content="Vehicle Detection" />
-    <meta property="twitter:title" content="Vehicle Detection" />
+    <meta property="og:title" content="Autonomous Vehicle Object Detector using classical Computer Vision techniques" />
+    <meta property="twitter:title" content="Autonomous Vehicle Object Detector using classical Computer Vision techniques" />
     
 
     <!--[if lt IE 9]>
@@ -185,13 +185,13 @@
 
     <div id="main" role="main" class="container">
       <article class="post">
-  <h1 align="center">Vehicle Detection</h1>
+  <h1 align="center">Autonomous Vehicle Object Detector using classical Computer Vision techniques</h1>
   <br>
 
   <div class="entry">
-    <h1 id="vehicle-detection">Vehicle Detection</h1>
+    <h3 id="here-we-will-present-some-classical-computer-vision-techniques-on-how-to-identify-nearby-vehicles-and-lane-lines">Here we will present some classical computer vision techniques on how to identify nearby vehicles and lane lines.</h3>
 
-<h2 id="important-files">Important files</h2>
+<h2 id="important-files-can-be-found-here">Important files can be found <a href="https://github.com/JonathanCMitchell/Vehicle-Detection/">here</a></h2>
 <ul>
   <li>model.py (builds SVM classifier and trains on training data)</li>
   <li>Processor.py (overlaying processor that runs the pipeline on a video stream input)</li>
@@ -201,7 +201,7 @@
     <h2 id="training-data">Training data:</h2>
   </li>
   <li>Our training dataset consists of 17760 images. 8792 non-vehicles and 8968 vehicles. We split our training and validation sets with 80% 20% respectively. So our training dataset was ~14208 images. The data looks like this
-<img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/examples/car_not_car.png" alt="car_not_car" /></li>
+<img src="/assets/images/Vehicle-Detection/examples/car_not_car.png" width="60%" /></li>
 </ul>
 
 <h3 id="process">Process:</h3>
@@ -217,8 +217,13 @@
 </ul>
 
 <h2 id="2-car-detection-helperspy">2) Car detection (helpers.py)</h2>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/pipeline1.jpg" /></div>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/pipeline2.jpg" /></div>
+<div style="text-align:center">
+	<img width="90%" src="/assets/images/Vehicle-Detection/output_images/pipeline1.jpg" />
+</div>
+
+<div style="text-align:center">
+	<img width="90%" src="/assets/images/Vehicle-Detection/output_images/pipeline2.jpg" />
+</div>
 
 <h3 id="in-car_helpersfind_cars-helperspy-implemented-in-get_detections-inside-car_detectorpy">In Car_helpers.find_cars (helpers.py) implemented in get_detections() inside Car_Detector.py</h3>
 <h4 id="sliding-window-implementation">Sliding Window Implementation</h4>
@@ -229,10 +234,10 @@
   <li>Here is what HOG features gives us</li>
 </ul>
 
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_images_pyramid.png" /></div>
+<div style="text-align:center"><img width="70%" src="/assets/images/Vehicle-Detection/output_images//HOG_images_pyramid.png" /></div>
 
 <ul>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsample_search_region.png" alt="HOG_subsample" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/HOG_subsample_search_region.png" alt="HOG_subsample" /></li>
   <li>Above: You can see the region we are using for our sub image between the light and dark blue lines</li>
   <li>Scale the extracted section by a <code class="highlighter-rouge">scale</code> parameter (line 168)</li>
   <li>Extract each channel from the scaled image</li>
@@ -244,7 +249,8 @@
   <li>Consider the scaled image to be in position space, not image space. We treat sections of the image as a grid in terms of whole integer values instead of in pixel values. See image below on how to grid looks</li>
 </ul>
 
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/hand_gridout.jpg" /></div>
+<!-- TODO Shrink image here -->
+<p><img width="60%" src="/assets/images/Vehicle-Detection/output_images/hand_gridout.jpg" /></p>
 
 <ul>
   <li>We will move from grid space back into image space later on don’t worry</li>
@@ -268,18 +274,18 @@
 <ul>
   <li>Take in the output from <code class="highlighter-rouge">Car_Finder.find_cars</code> (which are the detection coordinates above)</li>
   <li>Take in the detection coordinates and update the heatmap by adding 5 to each value within the heatmap’s bounding box</li>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsampling_on_test1.png" alt="hog_subsampling_on_test1" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/HOG_subsampling_on_test1.png" alt="hog_subsampling_on_test1" /></li>
   <li>
     <p>Above, as you can see we have more than one bounding box. Therefore we need to apply a heatmap in order to determine an accurate region for the vehicle and only draw one box</p>
   </li>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/processed_test_img1_and_heatmap.png" alt="image_heatmap_sidebyside" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/processed_test_img1_and_heatmap.png" alt="image_heatmap_sidebyside" /></li>
   <li>As you can see, sometimes we get detections that are false positives, in order to remove these false positives we apply a thresholding function</li>
   <li>Remove the values where the heatmap’s values are &lt; threshold. So it takes ~4 heat maps to pass through the thresholder</li>
   <li>Before we threshold, we take an average of the last 10 heat maps if 10 heat maps have been saved, then we insert this map into our thresholder</li>
   <li>Averaging allows us to rule out bad values and creates a smoother transition between frames</li>
   <li>Then we find the contours for the binary image, (which are basically the large shapes created from the heatmap)</li>
   <li>Then we create bounding boxes from these contours</li>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsampling_on_test4.png" alt="HOG_subsampling_on_test4" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/HOG_subsampling_on_test4.png" alt="HOG_subsampling_on_test4" /></li>
   <li>Above you can see that we have some false positives in the opposing lane, therefore we will rule out any boxes that occur at width &lt; 50 because this area corresponds to the opposing highway. We do this on line 91</li>
   <li>Grab the coordinates of the bounding box and append them to <code class="highlighter-rouge">centroid_rectangles</code> which we will pass to our <code class="highlighter-rouge">draw_centroids</code> helper function
     <h4 id="draw-centroids-in-helperspy">Draw Centroids (in helpers.py)</h4>
@@ -303,14 +309,14 @@ THE END</li>
 <h3 id="details-parameter-selection-tuning-paramsods">Details (Parameter selection) (tuning params.ods)</h3>
 <h4 id="color-space">Color Space:</h4>
 <ul>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/tuning_params.png" alt="tuning_params" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/tuning_params.png" alt="tuning_params" /></li>
   <li>Above: I tried these different parameters and tested the SVM’s predictions on a single image. I chose the YCrCb ALL channel color space because it gave me the best accuracy at training time</li>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/YCrCb_detection_ALL_Channel.png" alt="YCrCb_allChannel" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/YCrCb_detection_ALL_Channel.png" alt="YCrCb_allChannel" /></li>
   <li>Above: Result of training using YCrCb color space</li>
   <li>This gives us the best result with an accuracy of 99.5. Don’t be fooled by the 1.0 in the grid of parameter tests, that was only sampled for one image</li>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/LUV_detection_L_channel.png" alt="LUV_detection_L_channel" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/LUV_detection_L_channel.png" alt="LUV_detection_L_channel" /></li>
   <li>Above: Result of training using L channel in LUV color space</li>
-  <li><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/LUV_detection_V_channel.png" alt="LUV_detection_V_channel" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/LUV_detection_V_channel.png" alt="LUV_detection_V_channel" /></li>
   <li>Above: Result of training using V channel in LUV color space
     <h4 id="orientations">Orientations:</h4>
   </li>
@@ -326,8 +332,11 @@ THE END</li>
 <h2 id="video-of-result">Video of result</h2>
 <p><a href="http://www.youtube.com/embed/YaHjdLbfChE " target="_blank"><img src="http://img.youtube.com/vi/YaHjdLbfChE/0.jpg" alt="Watch Video Here" width="480" height="180" border="10" /></a></p>
 
+<h1 id="video-of-lane-line-detection--object-detection">Video of lane line detection + object detection</h1>
+<p><a href="http://www.youtube.com/embed/YnIMM0QoqFU " target="_blank"><img src="http://img.youtube.com/vi/YnIMM0QoqFU/0.jpg" alt="Watch Video Here" width="480" height="180" border="10" /></a></p>
+
 <h2 id="final-result-image">Final Result Image:</h2>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/final_result.jpg" /></div>
+<div style="text-align:center"><img width="60%" src="/assets/images/Vehicle-Detection/output_images/final_result.jpg" /></div>
 
 <h2 id="reflection">Reflection:</h2>
 <p>I tried a lot of different methods to get the most accurate pipeline. In theory, saving the state of the heatmap for subsequent images should work if you cool the regions where there are not current detections. This approach seems to work fairly well as you can see in the Video for heatmap cooling above. However, it involves storing more information because you have to save the state of the current heatmap to memory and it increases computation time. I like the idea of it, although determining the thresholds for it was rather difficult and involved a fair amount of evaluation.</p>
@@ -337,10 +346,13 @@ THE END</li>
 <p>As I pass through the lightly colored road I lose a detection on the white vehicle. This is simply due to the model parameters and the prediction constraints. At this point I do not have an accurate prediction, so no bounding box is drawn. The model is only as good as the data.</p>
 
 <p>At one point in the video the bounding box splits into two bounding boxes when it should be one bounding box. This happened because cv2.findContours found two contours due to the upper and lower section of the bounding boxes.</p>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_averaged_heatmap.png" /></div>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_binary_threshold1.png" /></div>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_double_box.jpg" /></div>
-<p>(Above) as you can see in this case the <a href="http://docs.opencv.org/trunk/d4/d73/tutorial_py_contours_begin.html">cv2.findContours</a> function inside get_centroid_rectangles detects two different contours, and that’s why two bounding boxes were drawn.</p>
+
+<ul>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/nc_averaged_heatmap.png" alt="" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/nc_binary_threshold1.png" alt="" /></li>
+  <li><img src="/assets/images/Vehicle-Detection/output_images/nc_double_box.jpg" alt="" />
+(Above) as you can see in this case the <a href="http://docs.opencv.org/trunk/d4/d73/tutorial_py_contours_begin.html">cv2.findContours</a> function inside get_centroid_rectangles detects two different contours, and that’s why two bounding boxes were drawn.</li>
+</ul>
 
 <h4 id="twitter-jonathancmitch">Twitter: <a href="https://twitter.com/jonathancmitch">@jonathancmitch</a></h4>
 <h4 id="linkedin-httpswwwlinkedincominjonathancmitchell">Linkedin: <a href="https://twitter.com/jonathancmitch">https://www.linkedin.com/in/jonathancmitchell</a></h4>
@@ -396,8 +408,8 @@ THE END</li>
 
 		ga('create', 'UA-109858309-1', 'auto');
 		ga('send', 'pageview', {
-		  'page': '/2018/04/01/Vehicle-Detection.html',
-		  'title': 'Vehicle Detection'
+		  'page': '/2018/04/01/Autonomous-Vehicle-Object-Detector.html',
+		  'title': 'Autonomous Vehicle Object Detector using classical Computer Vision techniques'
 		});
 	</script>
 	<!-- End Google Analytics -->

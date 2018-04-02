@@ -1,5 +1,5 @@
 ---
-title: Autonomous Vehicle Lane and Object Detector
+title: Advanced Lane Line Detection
 layout: post
 ---
 #### Github repo found [here](https://github.com/JonathanCMitchell/ObjectDetector)

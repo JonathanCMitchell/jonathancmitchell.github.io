@@ -1,11 +1,12 @@
 ---
-title: Vehicle Detection
+title: Autonomous Vehicle Object Detector using classical Computer Vision techniques
 layout: post
 ---
 
-# Vehicle Detection
 
-## Important files
+### Here we will present some classical computer vision techniques on how to identify nearby vehicles and lane lines. 
+
+## Important files can be found [here](https://github.com/JonathanCMitchell/Vehicle-Detection/)
 * model.py (builds SVM classifier and trains on training data)
 * Processor.py (overlaying processor that runs the pipeline on a video stream input)
 * settings.py (settings for tuned parameters)
@@ -13,7 +14,7 @@ layout: post
 * helpers.py (contains helper functions for feature extraction and sliding window implementation)
 ## Training data:
 * Our training dataset consists of 17760 images. 8792 non-vehicles and 8968 vehicles. We split our training and validation sets with 80% 20% respectively. So our training dataset was ~14208 images. The data looks like this
-![car_not_car](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/examples/car_not_car.png)
+<img src = "/assets/images/Vehicle-Detection/examples/car_not_car.png" width="60%"/>
 
 ### Process:
 ## 1) Training data (model.py)
@@ -26,8 +27,14 @@ layout: post
 * Save the LinearSVC (Linear Support Vector Machine) to a pickle file as well as other parameters and move to step 2 (line 79)
 
 ## 2) Car detection (helpers.py)
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/pipeline1.jpg"/></div>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/pipeline2.jpg"/></div>
+<div style="text-align:center">
+	<img width = "90%" src="/assets/images/Vehicle-Detection/output_images/pipeline1.jpg"/>
+</div>
+
+
+<div style="text-align:center">
+	<img width = "90%" src="/assets/images/Vehicle-Detection/output_images/pipeline2.jpg"/>
+</div>
 
 ### In Car_helpers.find_cars (helpers.py) implemented in get_detections() inside Car_Detector.py
 #### Sliding Window Implementation
@@ -36,9 +43,9 @@ Instead of creating random sliding windows, extract features from an entire regi
 * Extract the HOG features for the entire section of the image
 * Here is what HOG features gives us
 
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_images_pyramid.png"/></div>
+<div style="text-align:center"><img width = "70%" src="/assets/images/Vehicle-Detection/output_images//HOG_images_pyramid.png"/></div>
 
-* ![HOG_subsample](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsample_search_region.png)
+* ![HOG_subsample]({{"/assets/images/Vehicle-Detection/output_images/HOG_subsample_search_region.png"}})
 * Above: You can see the region we are using for our sub image between the light and dark blue lines
 * Scale the extracted section by a `scale` parameter (line 168)
 * Extract each channel from the scaled image
@@ -49,7 +56,8 @@ Instead of creating random sliding windows, extract features from an entire regi
 * Calculate [HOG](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html) features for each channel lines 
 * Consider the scaled image to be in position space, not image space. We treat sections of the image as a grid in terms of whole integer values instead of in pixel values. See image below on how to grid looks
 
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/hand_gridout.jpg"/></div>
+<!-- TODO Shrink image here -->
+<img width = "60%" src="/assets/images/Vehicle-Detection/output_images/hand_gridout.jpg"/>
 
 * We will move from grid space back into image space later on don't worry
 * For now, consider xpos and ypos to be grid positions (from left to right)
@@ -70,17 +78,17 @@ Instead of creating random sliding windows, extract features from an entire regi
 #### In Car_Finder.get_centroid_rectangles
 * Take in the output from `Car_Finder.find_cars` (which are the detection coordinates above)
 * Take in the detection coordinates and update the heatmap by adding 5 to each value within the heatmap's bounding box
-* ![hog_subsampling_on_test1](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsampling_on_test1.png)
+* ![hog_subsampling_on_test1]({{"/assets/images/Vehicle-Detection/output_images/HOG_subsampling_on_test1.png"}})
 * Above, as you can see we have more than one bounding box. Therefore we need to apply a heatmap in order to determine an accurate region for the vehicle and only draw one box
 
-* ![image_heatmap_sidebyside](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/processed_test_img1_and_heatmap.png)
+* ![image_heatmap_sidebyside]({{"/assets/images/Vehicle-Detection/output_images/processed_test_img1_and_heatmap.png"}})
 * As you can see, sometimes we get detections that are false positives, in order to remove these false positives we apply a thresholding function
 * Remove the values where the heatmap's values are < threshold. So it takes ~4 heat maps to pass through the thresholder
 * Before we threshold, we take an average of the last 10 heat maps if 10 heat maps have been saved, then we insert this map into our thresholder
 * Averaging allows us to rule out bad values and creates a smoother transition between frames
 * Then we find the contours for the binary image, (which are basically the large shapes created from the heatmap)
 * Then we create bounding boxes from these contours
-* ![HOG_subsampling_on_test4](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/HOG_subsampling_on_test4.png)
+* ![HOG_subsampling_on_test4]({{"/assets/images/Vehicle-Detection/output_images/HOG_subsampling_on_test4.png"}})
 * Above you can see that we have some false positives in the opposing lane, therefore we will rule out any boxes that occur at width < 50 because this area corresponds to the opposing highway. We do this on line 91 
 * Grab the coordinates of the bounding box and append them to `centroid_rectangles` which we will pass to our `draw_centroids` helper function
 #### Draw Centroids (in helpers.py)
@@ -100,14 +108,14 @@ THE END
 
 ### Details (Parameter selection) (tuning params.ods)
 #### Color Space:
-* ![tuning_params](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/tuning_params.png)
+* ![tuning_params]({{"/assets/images/Vehicle-Detection/output_images/tuning_params.png"}})
 * Above: I tried these different parameters and tested the SVM's predictions on a single image. I chose the YCrCb ALL channel color space because it gave me the best accuracy at training time
-* ![YCrCb_allChannel](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/YCrCb_detection_ALL_Channel.png)
+* ![YCrCb_allChannel]({{"/assets/images/Vehicle-Detection/output_images/YCrCb_detection_ALL_Channel.png"}})
 * Above: Result of training using YCrCb color space
 * This gives us the best result with an accuracy of 99.5. Don't be fooled by the 1.0 in the grid of parameter tests, that was only sampled for one image
-* ![LUV_detection_L_channel](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/LUV_detection_L_channel.png)
+* ![LUV_detection_L_channel]({{"/assets/images/Vehicle-Detection/output_images/LUV_detection_L_channel.png"}})
 * Above: Result of training using L channel in LUV color space
-* ![LUV_detection_V_channel](https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/LUV_detection_V_channel.png)
+* ![LUV_detection_V_channel]({{"/assets/images/Vehicle-Detection/output_images/LUV_detection_V_channel.png"}})
 * Above: Result of training using V channel in LUV color space 
 #### Orientations:
 * I chose to use 9 orientations
@@ -117,14 +125,19 @@ THE END
 * I did not create a new image to draw on each time, I simply drew on the input image. I didn't want to process more things. 
 
 
-## Video of result
+## Video of result 
 <a href="http://www.youtube.com/embed/YaHjdLbfChE
 " target="_blank"><img src="http://img.youtube.com/vi/YaHjdLbfChE/0.jpg" 
 alt="Watch Video Here" width="480" height="180" border="10" /></a>
 
+# Video of lane line detection + object detection
+<a href="http://www.youtube.com/embed/YnIMM0QoqFU
+" target="_blank"><img src="http://img.youtube.com/vi/YnIMM0QoqFU/0.jpg" 
+alt="Watch Video Here" width="480" height="180" border="10" /></a>
+
 
 ## Final Result Image:
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/final_result.jpg"/></div>
+<div style="text-align:center"><img width = "60%" src="/assets/images/Vehicle-Detection/output_images/final_result.jpg"/></div>
 
 
 ## Reflection: 
@@ -135,10 +148,13 @@ The heatmap summming approach allows me to work with whole number thresholds ins
 As I pass through the lightly colored road I lose a detection on the white vehicle. This is simply due to the model parameters and the prediction constraints. At this point I do not have an accurate prediction, so no bounding box is drawn. The model is only as good as the data.
 
 At one point in the video the bounding box splits into two bounding boxes when it should be one bounding box. This happened because cv2.findContours found two contours due to the upper and lower section of the bounding boxes.
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_averaged_heatmap.png"/></div>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_binary_threshold1.png"/></div>
-<div style="text-align:center"><img src="https://github.com/JonathanCMitchell/Vehicle-Detection/blob/master/output_images/nc_double_box.jpg"/></div>
+
+* ![]({{"/assets/images/Vehicle-Detection/output_images/nc_averaged_heatmap.png"}})
+* ![]({{"/assets/images/Vehicle-Detection/output_images/nc_binary_threshold1.png"}})
+* ![]({{"/assets/images/Vehicle-Detection/output_images/nc_double_box.jpg"}})
 (Above) as you can see in this case the [cv2.findContours](http://docs.opencv.org/trunk/d4/d73/tutorial_py_contours_begin.html) function inside get_centroid_rectangles detects two different contours, and that's why two bounding boxes were drawn.
+
+
 
 #### Twitter: [@jonathancmitch](https://twitter.com/jonathancmitch)
 #### Linkedin: [https://www.linkedin.com/in/jonathancmitchell](https://twitter.com/jonathancmitch)
