@@ -201,14 +201,29 @@
               <img width="797.6" height="460" class="img-responsive project-image dracarys-img" src="{{site.baseurl}}/assets/images/bbe_seg_webpic.png"
                 alt="#" />
             </div>
-          
-          
-          
-            <p class="text-left">• We present a bottom-up approach for the task of object instance segmentation using a single-shot model. The proposed
-              model employs a fully convolutional network which is trained to predict class-wise segmentation masks as well as the
-              bounding boxes of the object instances to which each pixel belongs.</p>
-            <p class="text-left">• Our network architecture is based on the DeepLabv3+ model, and requires only minimal extra computation to achieve pixel-wise
-              instance assignments.</p>
+            <p class="text-left">• Wrote and designed the training pipeline, loss functions, data generation, evaluation. Trained and benchmarked on the COCO
+            dataset. Implemented using Keras and Tensorflow.</p> 
+            <p class="text-left">• Implemented several different network architectures during training to find the best overall structure.</p>
+            <p class="text-left">• Experimented with several encoders / decoder / network head combinations:</p>
+            <ul class="text-left">
+            <strong>Encoders/Backbones: </strong>
+              <li><a href="https://arxiv.org/abs/1512.03385" target="_blank">ResNet50</a></li>
+              <li><a href="https://arxiv.org/abs/1512.03385" target="_blank">ResNet101 </a></li>
+              <li><a href="https://arxiv.org/abs/1704.04861" target="_blank">MobileNet</a></li>
+              <li><a href="https://arxiv.org/abs/1801.04381" target="_blank">MobileNetV2</a></li>
+
+            <strong>Decoders:</strong>
+              <li><a href="https://arxiv.org/abs/1505.04597" target="_blank">U-Net</a></li>
+              <li><a href="https://arxiv.org/abs/1802.02611" target="_blank">DeepLabV3+</a></li>
+
+            <strong>Heads:</strong>
+              <li><a href="https://arxiv.org/abs/1807.07674" target="_blank">BBESegmentation</a></li>
+              <li><a href="https://arxiv.org/abs/1602.00134" target="_blank">Openpose</a></li>
+              </ul>
+            
+            <p class="text-left">• Built Atrous Spatial Pyramid Pooling (<a href="https://arxiv.org/abs/1706.05587" target="_blank">ASPP</a>) module in order to increase semantic information flow while maintaining receptive field view between
+            our encoder and decoder Achieved 0.374 AP on the Person class compared to PersonLab’s 0.382 AP, and our network is mobile
+            ready</p>
           </div>
 
 
