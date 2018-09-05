@@ -146,6 +146,7 @@
         </div>
       </section>
 
+
     <!-- Publications -->
       <section class="latest section">
         <div class="section-inner"> 
@@ -159,19 +160,63 @@
                 <img width="797.6" height="460" class="img-responsive project-image dracarys-img" src="{{site.baseurl}}/assets/images/bbe_seg_webpic.png"
                   alt="#" />
               </div>
-
-            
-              
-              <p class="text-left">We present a bottom-up approach for the task of object instance segmentation using a single-shot model. The proposed model
+              <p class="text-left">• We present a bottom-up approach for the task of object instance segmentation using a single-shot model. The proposed model
               employs a fully convolutional network which is trained to predict class-wise segmentation masks as well as the bounding boxes
               of the object instances to which each pixel belongs.</p>
-              <p class="text-left">Our network architecture is based on the DeepLabv3+ model, and requires only minimal extra computation to achieve pixel-wise
-              instance assignments.</p>
+              <p class="text-left">• Our network architecture is based on the DeepLabv3+ model, and requires only minimal extra computation to achieve pixel-wise
+              instance assignments. <a class="more-link" href="https://arxiv.org/abs/1807.07674" target="_blank">
+                <i class="fa fa-file"></i> See paper</a> </p>
             </div>
           </div>
         </div>
       </section>
     <!-- end Publications -->
+
+    <!-- Research -->
+    <section class="latest section">
+      <div class="section-inner">
+        <h1 class="heading">Research</h1>
+        <div class="content">
+          <h2 class="title">Instance Segmentation</h2>
+
+          <div class="item featured text-center">
+            <h3 class="title"> Instance and Pose Detection network </h3>
+            <div class="featured-image">
+              <img width="797.6" height="460" class="img-responsive project-image dracarys-img" src="{{site.baseurl}}/assets/images/bbe_seg_kp.jpg"
+                alt="#" />
+            </div>
+            <p class="text-left">• Designed a neural network that is able to identity individual person instance masks and human pose given a random image</p>
+            <p class="text-left">• Added a human pose detection branch to an existing Bounding Box Embedding network in order to predict human pose and instance
+                                   masks from a random image.</p>
+            <p class="text-left">• Constructed data generation in order to include human keypoints, wrote entire code base from scratch; designed, trained, and tested network on Microsoft's <a href="http://cocodataset.org/">COCO</a> dataset.</p>
+            <p class="text-left">• Network is mobile-ready and can run in real time on an iPhoneX’s GPU.</p>
+          </div>
+
+          
+          <div class="item featured text-center">
+            <h3 class="title">
+              <a href="https://arxiv.org/abs/1807.07674" target="_blank">Bounding Box Embedding for Single Shot Person Instance Segmentation</a>
+            </h3>
+            <div class="featured-image">
+              <img width="797.6" height="460" class="img-responsive project-image dracarys-img" src="{{site.baseurl}}/assets/images/bbe_seg_webpic.png"
+                alt="#" />
+            </div>
+          
+          
+          
+            <p class="text-left">• We present a bottom-up approach for the task of object instance segmentation using a single-shot model. The proposed
+              model employs a fully convolutional network which is trained to predict class-wise segmentation masks as well as the
+              bounding boxes of the object instances to which each pixel belongs.</p>
+            <p class="text-left">• Our network architecture is based on the DeepLabv3+ model, and requires only minimal extra computation to achieve pixel-wise
+              instance assignments.</p>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+    <!-- end Publications -->
+
 
     <!-- TEACHING -->
        <section class="latest section">
