@@ -5,7 +5,7 @@
         <title></title>
         <link>http://localhost:4000</link>
         <description>Computer Vision Engineer</description>
-        <lastBuildDate>Tue, 02 Oct 2018 09:59:09 -0700</lastBuildDate>
+        <lastBuildDate>Tue, 02 Oct 2018 10:01:38 -0700</lastBuildDate>
         
         <item>
             <description>
@@ -35,12 +35,9 @@
         
         <item>
             <description>
-                &lt;p&gt;Some sample content. Post not finished&lt;/p&gt;
-&lt;h3 id=&quot;this-first-post-will-be-about-keras-and-some-interesting-keras-tricks&quot;&gt;This first post will be about Keras. And some interesting keras tricks.&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;There are some very intersting things you can do with Keras
-Especially
-&lt;code class=&quot;highlighter-rouge&quot;&gt;These things &lt;/c...
+                &lt;p&gt;I never posted anything here.&lt;/p&gt;
+
+
             </description>
             <pubDate>Sat, 24 Mar 2018 00:00:00 -0700</pubDate>
             <guid>
