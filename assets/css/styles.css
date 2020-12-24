@@ -9,8 +9,8 @@
 /* ======= Base ======= */
 body {
   font-family: 'Lato', arial, sans-serif;
-  color: #434343;
-  background: #c5d2d8;
+  color: #cc5f5f;
+  background: #2C2F36;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,15 +23,16 @@ h5,
 h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #778492;
+  color: #B6BFD2;
 }
 a {
-  color: #3aa6aa;
+  color: #b3e5e7;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
 }
+
 a:hover {
   text-decoration: underline;
   color: #5f6b77;
@@ -168,7 +169,7 @@ iframe {
   margin-bottom: 30px;
 }
 .section .section-inner {
-  background: #fff;
+  background: #232428;
   padding: 30px;
 }
 .section .heading {

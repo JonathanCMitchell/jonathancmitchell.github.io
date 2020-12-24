@@ -3,9 +3,9 @@
 
     <channel>
         <title></title>
-        <link>http://localhost:4000</link>
+        <link>http://jonathancmitchell.github.io</link>
         <description>Computer Vision Engineer</description>
-        <lastBuildDate>Tue, 09 Oct 2018 21:18:23 -0700</lastBuildDate>
+        <lastBuildDate>Thu, 24 Dec 2020 12:01:02 -0800</lastBuildDate>
         
         <item>
             <description>
@@ -16,7 +16,7 @@
             </description>
             <pubDate>Sun, 01 Apr 2018 00:00:00 -0700</pubDate>
             <guid>
-                http://localhost:4000/2018/04/01/Autonomous-Vehicle-Object-Detector.html
+                http://jonathancmitchell.github.io/2018/04/01/Autonomous-Vehicle-Object-Detector.html
             </guid>
         </item>
         
@@ -29,7 +29,7 @@
             </description>
             <pubDate>Sun, 01 Apr 2018 00:00:00 -0700</pubDate>
             <guid>
-                http://localhost:4000/2018/04/01/Advanced-Laneline-Detection.html
+                http://jonathancmitchell.github.io/2018/04/01/Advanced-Laneline-Detection.html
             </guid>
         </item>
         
@@ -41,7 +41,7 @@
             </description>
             <pubDate>Sat, 24 Mar 2018 00:00:00 -0700</pubDate>
             <guid>
-                http://localhost:4000/2018/03/24/First-Post.html
+                http://jonathancmitchell.github.io/2018/03/24/First-Post.html
             </guid>
         </item>
         

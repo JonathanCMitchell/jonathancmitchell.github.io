@@ -4,42 +4,42 @@
     
     <url>
         <loc>/about.html</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/blog.html</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/feed.xml</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/resume.html</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/sitemap.xml</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
@@ -48,21 +48,21 @@
     
     <url>
         <loc>/2018/04/01/Autonomous-Vehicle-Object-Detector.html</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/2018/04/01/Advanced-Laneline-Detection.html</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
         <loc>/2018/03/24/First-Post.html</loc>
-        <lastmod>2018-10-09</lastmod>
+        <lastmod>2020-12-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
